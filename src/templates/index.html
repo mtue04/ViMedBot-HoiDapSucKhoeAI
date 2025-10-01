@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ViMedBot - Hỏi Đáp Sức Khỏe AI</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="app">
+    <!-- Left Sidebar -->
+    <aside id="leftSidebar" class="sidebar">
+      <div class="sidebar__top">
+        <button id="btnNewChat" class="btn btn--primary btn--full">
+          <i data-lucide="plus"></i>
+          <span>Cuộc trò chuyện mới</span>
+        </button>
+      </div>
+
+      <div class="sidebar__scroll">
+        <div class="sidebar__section-title">Lịch sử trò chuyện</div>
+        <div id="convList" class="sidebar__list">
+          <div id="emptyHint" class="sidebar__empty">(Chưa có cuộc trò chuyện trong phiên này)</div>
+        </div>
+      </div>
+
+      <div class="sidebar__bottom">
+        <button id="btnInfo" class="btn btn--ghost btn--full" title="Mẹo sử dụng & Liên hệ khẩn cấp">
+          <span class="badge-i badge-i--lg">i</span>
+          <span class="info-text">Thông tin thêm</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <header class="main__header">
+        <button id="btnToggleSidebar" class="icon-btn" title="Mở/Đóng danh sách">
+          <i data-lucide="menu"></i>
+        </button>
+        <img src="/assets/ViMedBot_logo.jpg" alt="ViMedBot" class="logo" onerror="this.style.display='none';document.getElementById('logoText').style.display='block'">
+        <div id="logoText" class="logo-text">ViMedBot</div>
+      </header>
+
+      <section id="messages" class="chat"></section>
+
+      <footer class="inputbar">
+        <div class="inputbar__inner">
+          <input id="inputBox" type="text" placeholder="Nhập câu hỏi về sức khỏe của bạn..." />
+          <button id="btnSend" class="icon-btn icon-btn--send" title="Gửi">
+            <i data-lucide="send"></i>
+          </button>
+        </div>
+        <p class="disclaimer">
+          ⚠️ ViMedBot không thay thế tư vấn bác sĩ. Trong trường hợp khẩn cấp hãy liên hệ cơ sở y tế.
+        </p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Popup: Thông tin thêm -->
+  <div id="infoModal" class="modal">
+    <div class="modal__backdrop" data-close="modal"></div>
+    <div class="modal__content" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+      <div class="modal__header">
+        <h3 id="infoTitle">Thông tin thêm</h3>
+        <button class="icon-btn" data-close="modal" title="Đóng">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="modal__body">
+        <div class="card card--blue">
+          <div class="card__title">💡 Mẹo sử dụng ViMedBot</div>
+          <ul class="card__list">
+            <li>Nêu <b>triệu chứng chính</b>, thời điểm bắt đầu, mức độ (nhẹ/vừa/nặng), yếu tố làm <i>tăng/giảm</i>.</li>
+            <li>Thêm <b>bối cảnh</b>: tuổi, giới, bệnh nền, thuốc đang dùng, dị ứng.</li>
+            <li>Đặt mục tiêu rõ: <b>khi nào đi khám</b>, <b>xét nghiệm</b> nào cần, chăm sóc tại nhà…</li>
+            <li>Nếu hỏi thuốc: nêu <b>hoạt chất</b>, liều, tần suất, thời gian dùng.</li>
+            <li>Không thay thế chẩn đoán của bác sĩ. Thông tin chỉ để <b>tham khảo</b>.</li>
+          </ul>
+        </div>
+
+        <div class="card card--green">
+          <div class="card__title">🏥 Liên hệ khẩn cấp (VN)</div>
+          <ul class="card__list">
+            <li><b>112</b>: Cứu nạn.</li>
+            <li><b>113</b>: Công an.</li>
+            <li><b>114</b>: Cứu hỏa.</li>
+            <li><b>115</b>: Cấp cứu y tế.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="modal__footer">
+        <button class="btn btn--dark" data-close="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>
