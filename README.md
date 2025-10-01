@@ -18,7 +18,24 @@ At the foundation of the RAG system is a carefully curated knowledge source deri
 - **Data Storage:** The structured data is embedded into dense vector representations and stored in a vector database (`Qdrant`). This allows semantic search to match user queries against the most relevant passages, ensuring accurate and efficient retrieval for the RAG pipeline.
 
 ### Model
+The ViMedBot system integrates multiple specialized models to power its RAG pipeline:
 
+#### Language Model (LLM)
+- **Model:** `gemini-2.0-flash` (Google Gemini)
+- **Purpose:** Generates natural, contextual responses based on retrieved medical documents
+- **Features:** Fast inference, multilingual support, optimized for Vietnamese medical terminology
+
+#### Embedding Model
+- **Model:** [`Dqdung205/medical_vietnamese_embedding`](https://huggingface.co/Dqdung205/medical_vietnamese_embedding)
+- **Purpose:** Converts text into dense vector representations for semantic search
+- **Specialization:** Fine-tuned on Vietnamese medical corpus for domain-specific understanding
+- **Architecture:** Based on sentence-transformers, optimized for medical terminology
+
+#### Reranker Model
+- **Model:** `rerank-multilingual-v3.0` (Cohere)
+- **Purpose:** Refines retrieved documents by reordering them based on relevance to the user query
+- **Features:** Cross-encoder architecture, multilingual support including Vietnamese
+- **Impact:** Significantly improves answer quality by prioritizing the most relevant context
 
 ### Deployment
 
