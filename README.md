@@ -6,6 +6,7 @@
 ![ViMedBot Pipeline](assets/ViMedBot_pipeline.png)
 
 ## Demo
+![ViMedBot Demo](assets/ViMedBot_demo.png)
 
 ## Methodology
 ### Data Collection & Processing
